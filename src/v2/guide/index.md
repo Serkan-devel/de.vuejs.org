@@ -10,7 +10,7 @@ Vue (/vjuː/ ausgesprochen, wie **view**, Englisch für **Sicht**) ist ein **for
 
 Wenn du ein erfahrener Entwickler bist und wissen willst, wie sich Vue im Vergleich mit anderen Bibliotheken bzw. Frameworks schlägt, dann solltest du [diesen Vergleich](comparison.html) in Betracht ziehen.
 
-## Loslegen
+## Los geht's
 
 <p class="tip">Dieser offizielle Guide setzt gewisse Kenntnisse in HTML, CSS und JavaScript voraus. Wenn du gerade erst mit der Frontend-Programmierung angefangen hast, ist es wahrscheinlich nicht die beste Idee, dich direkt in ein Framework zu stürzen - erarbeite dir lieber die Grundlagen und komme dann zurück! Kenntnisse mit anderen Frameworks ist jedoch nicht von Nöten.</p>
 
@@ -22,9 +22,10 @@ Der einfachste Weg, Vue.js auszuprobieren, ist, sich das [JSFiddle Hello World B
 
 Die [Installations-Seite](installation.html) zeigt zusätzliche Optionen auf, Vue zu installieren. Bitte beachte, dass wir Anfängern **nicht** empfehlen, mit `vue-cli` zu beginnen, erst recht nicht, wenn du dich nicht mit Node.js-basierten Entwicklungs-Werkzeugen auskennst.
 
-## Declarative Rendering
+## Deklaratives Rendern
+<!-- TODO: deklarative Rendering -->
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+Im Kern von Vue.js steckt das System, das deklaratives Rendern des DOMs ermöglicht. Ein kleines Beispiel zeigt dieses Prinzip:
 
 ``` html
 <div id="app">
@@ -53,15 +54,15 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-We have already created our very first Vue app! This looks pretty similar to just rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Just open your browser's JavaScript console (right now, on this page) and set `app.message` to a different value. You should see the rendered example above update accordingly.
+Damit haben wir unsere erste Vue-App erstellt! Das ganze sieht dem einfachen Rendern einer Vorlage ziemlich ähnlich, aber Vue macht unter der Haube noch viel mehr. Die Daten und das DOM sind nun verknüpft, alles **reagiert** jetzt aufeinander. Glaubst du nicht? Öffne doch einfach mal die JavaScript-Konsole deines Browsers (hier, auf dieser Seite) und belege `app.message` mit einem anderen Wert. Entsprechend deiner Änderung solltest du auch die Änderung des Beispiels oben sehen.
 
-In addition to text interpolation, we can also bind element attributes like this:
+Neben dem Einschieben von Text können wir auch Werte an Eigenschaften von Elementen binden. (Um die Auswirkung des Beispiels zu sehen, sollte der DOM-Inspektor benutzt werden, um das sich verändernde Attribut beobachten zu können.)
 
 ``` html
 <div id="app-2">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
+    Bewege deine Maus für ein paar Sekunden über mich,
+    um meinen sich dynamisch verändernden Titel zu beobachten.
   </span>
 </div>
 ```
@@ -69,37 +70,38 @@ In addition to text interpolation, we can also bind element attributes like this
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date()
+    message: 'Du hast die Seite um ' + new Date() + ' geladen'
   }
 })
 ```
 {% raw %}
 <div id="app-2" class="demo">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Bewege deine Maus für ein paar Sekunden über mich,
+    um meinen sich dynamisch verändernden Titel zu beobachten.
   </span>
 </div>
 <script>
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date()
+    message: 'Du hast die Seite um ' + new Date() + ' geladen'
   }
 })
 </script>
 {% endraw %}
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+Hier sehen wir etwas neues. Das Attribut `v-bind`, dass du siehst, wird eine **Direktive** genannt. Direktiven sind mit dem Präfix `v-` versehen, um anzudeuten, dass sie spezielle, von Vue bereitgestelle Attribute sind. Und wie du vielleicht bereits mitbekommen hast, zeigen sie ein besonderes Verhalten im gerenderten DOM. Hier bedeutet das im Prinzip "setzte das Attribut `title` immer gleich mit der Eigenschaft `message` der Vue-Instanz, erneuere das eine mit dem anderen."
 
-If you open up your JavaScript console again and enter `app2.message = 'some new message'`, you'll once again see that the bound HTML - in this case the `title` attribute - has been updated.
+Wenn du in deine JavaScript-Konsole guckst und `app2.message = 'eine neue Nachricht'` eingibst, wirst du sehen, dass sich das verbundene HTML - in diesem Fall das Attribut `title` - erneuert hat.
 
-## Conditionals and Loops
+## Bedingungen und Schleifen
 
-It's quite simple to toggle the presence of an element, too:
+Es ist ziemlich einfach, die Sichtbarkeit eines Elements zu steuern:
 
 ``` html
 <div id="app-3">
-  <p v-if="seen">Now you see me</p>
+  <p v-if="seen">Jetzt siehst du mich</p>
 </div>
 ```
 
@@ -114,7 +116,7 @@ var app3 = new Vue({
 
 {% raw %}
 <div id="app-3" class="demo">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Jetzt siehst du mich</span>
 </div>
 <script>
 var app3 = new Vue({
@@ -126,11 +128,10 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+Wenn du `app3.seen = false` in der Konsole eingibst, sollte diese Nachricht verschwinden.
+Dieses Beispiel zeigt, dass wir Daten nicht nur mit Text und Attributen verknüpfen konnen, sondern auch direkt mit der **Struktur** des DOMs. Des weiteren bietet Vue ein System an Animationen für Übergänge an, das automatisch diese [Effekte anwenden kann](transitions.html), wenn die Elemente von Vue eingefügt/erneuert/entfernt werden.
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
-
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+Es gibt noch einige andere Direktiven, jede mit ihrer eigenen speziellen Funktionsweise. Die `v-for` Direktive zum Beispiel kann genutzt werden, um eine Liste mit Inhalten aus einem Array darzustellen.
 
 ``` html
 <div id="app-4">
@@ -146,9 +147,9 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'JavaScript lernen' },
+      { text: 'Vue lernen' },
+      { text: 'Irgendwas geniales daraus machen' }
     ]
   }
 })
@@ -166,18 +167,18 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'JavaScript lernen' },
+      { text: 'Vue lernen' },
+      { text: 'Irgendwas geniales daraus machen' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-In the console, enter `app4.todos.push({ text: 'New item' })`. You should see a new item appended to the list.
+Wenn du `app4.todos.push({ text: 'Neues Element' })` in der Konsole eingibst, so solltest du ein neues Element in der Liste sehen.
 
-## Handling User Input
+## Mit Nutzereingaben umgehen
 
 To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
 
