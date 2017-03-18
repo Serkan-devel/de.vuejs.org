@@ -12,10 +12,10 @@ $ npm install
 $ hexo server
 ```
 
-##Status
-wird noch ergänzt...
+## Status
+ToDo
 
-##Andere Übersetzungen
+## Andere Übersetzungen
 Eine Liste der Übersetzungen in andere Sprachen:
 
 ### Mandarin
