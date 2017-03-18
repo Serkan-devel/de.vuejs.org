@@ -1,26 +1,26 @@
 ---
-title: Introduction
+title: Einleitung
 type: guide
 order: 2
 ---
 
-## What is Vue.js?
+## Was ist Vue.js?
 
-Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#libraries--plugins).
+Vue (/vjuː/ ausgesprochen, wie **view**, Englisch für **Sicht**) ist ein **fortschrittliches Framework** für das erstellen von Nutzeroberflächen. Im Gegensatz zu anderen monolithischen Frameworks ist Vue von Grund auf dafür konzipiert, schrittweise erweiterbar zu sein. Die Kern-Bibliothek von Vue greift ausschließlich in die Oberfläche der Anwendung ein und lässt sich sehr einfach mit anderen Bibliotheken und Projekten erweitern. Auf der anderen Seite ist Vue auch perfekt dafür geeignet, <!-- TODO: sophisticated --> Single-Page-Anwendungen zu gestalten. Dafür bieten sich [moderne Werkzeuge](single-file-components.html) und [unterstützende Bibliotheken](https://github.com/vuejs/awesome-vue#libraries--plugins) an.
 
-If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](comparison.html).
+Wenn du ein erfahrener Entwickler bist und wissen willst, wie sich Vue im Vergleich mit anderen Bibliotheken bzw. Frameworks schlägt, dann solltest du [diesen Vergleich](comparison.html) in Betracht ziehen.
 
-## Getting Started
+## Loslegen
 
-<p class="tip">The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.</p>
+<p class="tip">Dieser offizielle Guide setzt gewisse Kenntnisse in HTML, CSS und JavaScript voraus. Wenn du gerade erst mit der Frontend-Programmierung angefangen hast, ist es wahrscheinlich nicht die beste Idee, dich direkt in ein Framework zu stürzen - erarbeite dir lieber die Grundlagen und komme dann zurück! Kenntnisse mit anderen Frameworks ist jedoch nicht von Nöten.</p>
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can simply create an `.html` file and include Vue with:
+Der einfachste Weg, Vue.js auszuprobieren, ist, sich das [JSFiddle Hello World Beispiel](https://jsfiddle.net/chrisvfritz/50wL7mdz/) anzugucken. Öffne es ruhig in einem neuen Tab und beziehe es immer mal wieder ein, während wir diesen Kurs beschreiten. Du kannst auch einfach deine eigene `.html` Datei mit dem folgenden Inhalt erstellen, um Vue einzubeziehen:
 
 ``` html
 <script src="https://unpkg.com/vue"></script>
 ```
 
-The [Installation](installation.html) page provides more options of installing Vue. Note that we **do not** recommend beginners to start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
+Die [Installations-Seite](installation.html) zeigt zusätzliche Optionen auf, Vue zu installieren. Bitte beachte, dass wir Anfängern **nicht** empfehlen, mit `vue-cli` zu beginnen, erst recht nicht, wenn du dich nicht mit Node.js-basierten Entwicklungs-Werkzeugen auskennst.
 
 ## Declarative Rendering
 
