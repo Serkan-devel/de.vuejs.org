@@ -1,4 +1,4 @@
-# vuejs.org
+# [de.vuejs.org](https://de.vuejs.org)
 
 Diese Seite wird mit [hexo](http://hexo.io/) betrieben. Die Inhalte sind in Markdown geschrieben und liegen in `src`. Pull-Requests willkommen!
 
