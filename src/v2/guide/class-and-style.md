@@ -123,7 +123,7 @@ Allerdings kann dies ein bisschen ausführlich sein, wenn man mehrere bedingte K
 
 ### Mit Komponenten
 
-> In diesem Abschnitt wird die Kenntnis von [Vue Components] (components.html) angenommen. Fühlen Sie sich frei, es zu überspringen und kommen später zurück.
+> In diesem Abschnitt wird die Kenntnis von [Vue Components](components.html) angenommen. Fühlen Sie sich frei, es zu überspringen und kommen später zurück.
 
 Wenn Sie das `class`-Attribut auf einer benutzerdefinierten Komponente verwenden, werden diese Klassen dem Stammelement der Komponente hinzugefügt. Bestehende Klassen auf diesem Element werden nicht überschrieben.
 
