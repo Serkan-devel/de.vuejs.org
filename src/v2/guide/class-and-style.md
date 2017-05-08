@@ -45,7 +45,7 @@ data: {
 }
 ```
 
-Es wird machen:
+Resultiert in:
 
 ``` html
 <div class="static active"></div>
@@ -101,7 +101,7 @@ data: {
 }
 ```
 
-Was wird machen:
+Resultiert in:
 
 ``` html
 <div class="active text-danger"></div>
@@ -113,9 +113,9 @@ Wenn du gern auch eine Klasse in der Liste bedingt hast, kannst du es mit einem 
 <div v-bind:class="[isActive ? activeClass : '', errorClass]">
 ```
 
-Dies gilt immer `errorClass`, wird aber nur `activeClass` angewendet, wenn `isActive` `true` ist.
+Hier gilt immer `errorClass`, `activeClass` wird aber nur angewendet, wenn `isActive` `true` ist.
 
-Allerdings kann dies ein bisschen ausführlich sein, wenn man mehrere bedingte Klassen hat. Aus diesem Grund ist es auch möglich, die Objektsyntax in der Array-Syntax zu verwenden:
+Allerdings kann dies ein bisschen unübersichtlich, wenn man mehrere bedingte Klassen hat. Aus diesem Grund ist es auch möglich, die Objektsyntax in der Array-Syntax zu verwenden:
 
 ``` html
 <div v-bind:class="[{ active: isActive }, errorClass]">
@@ -127,7 +127,7 @@ Allerdings kann dies ein bisschen ausführlich sein, wenn man mehrere bedingte K
 
 Wenn Sie das `class`-Attribut auf einer benutzerdefinierten Komponente verwenden, werden diese Klassen dem Stammelement der Komponente hinzugefügt. Bestehende Klassen auf diesem Element werden nicht überschrieben.
 
-Zum Beispiel, wenn Sie diese Komponente erklären:
+Zum Beispiel, wenn Sie diese Komponente definieren:
 
 ``` js
 Vue.component('my-component', {
